@@ -2,3 +2,4 @@
 .idea/
 springboot-activemq.iml
 .gradle/
+build/
