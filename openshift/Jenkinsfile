@@ -1,7 +1,4 @@
 pipeline {
-    agent {
-        label 'jenkinsci/jnlp-slave'
-    }
     stages {
         stage ('Build'){
             steps {
