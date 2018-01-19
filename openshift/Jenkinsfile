@@ -2,13 +2,17 @@ pipeline {
     agent any
     stages {
         stage ('Build'){
-            script {
-                openshiftBuild(buildConfig: 'springboot-activemq', showBuildLogs: 'true')
+            steps {
+                script {
+                    openshiftBuild(buildConfig: 'springboot-activemq', showBuildLogs: 'true')
+                }
             }
         }
         stage ('Deploy'){
-            script {
-                openshiftDeploy(deploymentConfig: 'springboot-activemq')
+            steps {
+                script {
+                       openshiftDeploy(deploymentConfig: 'springboot-activemq')
+                }
             }
         }
     }
