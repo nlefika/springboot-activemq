@@ -15,14 +15,14 @@ pipeline {
         stage ('OpenshiftBuild'){
             steps {
                 script {
-                   openshiftBuild(buildConfig: '${NAME}', showBuildLogs: 'true')
+                   openshiftBuild(buildConfig: 'springboot-activemq', showBuildLogs: 'true')
                 }
             }
         }
         stage ('OpenshiftDeploy'){
             steps {
                 script{
-                    openshiftDeploy(deploymentConfig: '${NAME}')
+                    openshiftDeploy(deploymentConfig: 'springboot-activemq')
                 }
             }
         }
