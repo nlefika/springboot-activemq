@@ -2,19 +2,13 @@ pipeline {
     agent any
     stages {
         stage ('Build'){
-            steps {
-                sh './gradlew clean build test'
-
-                script {
-                    openshiftBuild(buildConfig: 'springboot-activemq', showBuildLogs: 'true')
-                }
+            script {
+                openshiftBuild(buildConfig: 'springboot-activemq', showBuildLogs: 'true')
             }
         }
         stage ('Deploy'){
-            steps {
-                script {
-                       openshiftDeploy(deploymentConfig: 'springboot-activemq')
-                }
+            script {
+                openshiftDeploy(deploymentConfig: 'springboot-activemq')
             }
         }
     }
