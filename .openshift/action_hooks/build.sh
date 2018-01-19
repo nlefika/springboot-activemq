@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+echo 'Running build.....................'
 set -x
 cd $OPENSHIFT_REPO_DIR
 export GRADLE_USER_HOME=$OPENSHIFT_DATA_DIR/gradle

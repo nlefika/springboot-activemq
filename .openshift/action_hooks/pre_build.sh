@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+echo 'Running pre-build.................'
 set -x
 if [ ! -d $OPENSHIFT_DATA_DIR/gradle-4.4.1 ]
 then
