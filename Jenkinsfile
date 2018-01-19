@@ -3,15 +3,26 @@ pipeline {
     stages {
         stage ('Build'){
             steps {
+               sh './gradlew clean build'
+            }
+        }
+
+        stage ('Test'){
+            steps {
+                sh './gradlew test'
+            }
+        }
+        stage ('OpenshiftBuild'){
+            steps {
                 script {
-                    openshiftBuild(buildConfig: 'springboot-activemq', showBuildLogs: 'true')
+                   openshiftBuild(buildConfig: '${NAME}', showBuildLogs: 'true')
                 }
             }
         }
-        stage ('Deploy'){
+        stage ('OpenshiftDeploy'){
             steps {
-                script {
-                       openshiftDeploy(deploymentConfig: 'springboot-activemq')
+                script{
+                    openshiftDeploy(deploymentConfig: '${NAME}')
                 }
             }
         }
